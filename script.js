@@ -1,16 +1,23 @@
+let shown = false; // ek flag banaya
+
 function showMessage() {
   let msg = document.getElementById("greet");
-  msg.classList.add("show");
 
-  // Heart rain for few seconds
-  let duration = 4000; // 4 sec
-  let interval = setInterval(() => {
-    createHeart();
-  }, 200);
+  if (!shown) {   // sirf ek hi baar chalega
+    msg.classList.add("show");
 
-  setTimeout(() => {
-    clearInterval(interval);
-  }, duration);
+    // Heart rain for few seconds
+    let duration = 4000; // 4 sec
+    let interval = setInterval(() => {
+      createHeart();
+    }, 200);
+
+    setTimeout(() => {
+      clearInterval(interval);
+    }, duration);
+
+    shown = true; // dobara run nahi hoga
+  }
 }
 
 function createHeart() {
